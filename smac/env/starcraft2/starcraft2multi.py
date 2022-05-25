@@ -583,6 +583,7 @@ class StarCraft2EnvMulti(StarCraft2Env):
                 if self.log_more_stats:
                     # Records remaining health
                     for i in range(self.n_agents):
+                        continue
                         unit = self.get_unit_by_id(i)
                         info["win_health_team_1_agent_" + str(
                             i)] = unit.health / unit.health_max
@@ -673,6 +674,7 @@ class StarCraft2EnvMulti(StarCraft2Env):
                                 i)] = self.move_away_in_shoot_range_team1[i][2]
 
                     for i in range(self.n_enemies):
+                        continue
                         info["loss_position_x_team_2_agent_" + str(
                             i)] = pos_team_2[i][0]
                         info["loss_position_y_team_2_agent_" + str(
@@ -777,6 +779,7 @@ class StarCraft2EnvMulti(StarCraft2Env):
 
                 if self.log_more_stats:
                     for i in range(self.n_enemies):
+                        continue
                         unit = self.get_unit_by_id(self.n_agents + i)
                         info["win_health_team_2_agent_" + str(
                             i)] = unit.health / unit.health_max
@@ -874,6 +877,7 @@ class StarCraft2EnvMulti(StarCraft2Env):
                                 i)] = self.move_away_in_shoot_range_team2[i][2]
 
                     for i in range(self.n_agents):
+                        continue
                         info["loss_position_x_team_1_agent_" + str(
                             i)] = pos_team_1[i][0]
                         info["loss_position_y_team_1_agent_" + str(
@@ -984,6 +988,7 @@ class StarCraft2EnvMulti(StarCraft2Env):
                                                unit.pos.y - center_y) / self.max_distance_y))
 
                 for i in range(self.n_agents):
+                    continue
                     unit = self.get_unit_by_id(i)
                     info["draw_health_team_1_agent_" + str(
                         i)] = unit.health / unit.health_max
@@ -1059,6 +1064,7 @@ class StarCraft2EnvMulti(StarCraft2Env):
                         i)] = self.move_away_in_shoot_range_team1[i][2]
 
                 for i in range(self.n_enemies):
+                    continue
                     unit = self.get_unit_by_id(self.n_agents + i)
                     info["draw_health_team_2_agent_" + str(
                         i)] = unit.health / unit.health_max
