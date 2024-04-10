@@ -111,10 +111,10 @@ class StarCraft2EnvMulti(StarCraft2Env):
                 self.map_x, int(self.map_y / 8))
             self.pathing_grid = np.transpose(np.array([
                 [(b >> i) & 1 for b in row for i in range(7, -1, -1)]
-                for row in vals], dtype=np.bool))
+                for row in vals], dtype=bool))
         else:
             self.pathing_grid = np.invert(np.flip(np.transpose(np.array(
-                list(map_info.pathing_grid.data), dtype=np.bool).reshape(
+                list(map_info.pathing_grid.data), dtype=bool).reshape(
                 self.map_x, self.map_y)), axis=1))
 
     def reset(self):
@@ -1709,6 +1709,8 @@ class StarCraft2EnvMulti(StarCraft2Env):
 
         if self.obs_last_action:
             last_action_feats = self.n_actions
+        else:
+            last_action_feats = 0
 
         move_feats = self.n_actions_move
         if self.obs_pathing_grid:
